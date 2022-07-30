@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 
 
 const UserSchema = new mongoose.Schema({
-    username : {
+    name : {
         type: String,
         required: true,
         unique: true //making sure noone can create a user with an existing username
