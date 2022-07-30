@@ -1,4 +1,4 @@
-import { Request, Response, Router } from "express"
+import { Request, Response } from "express"
 import { User } from "../models/User"
 
 const jwt = require('jsonwebtoken')
