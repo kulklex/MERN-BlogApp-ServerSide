@@ -1,16 +1,28 @@
-import express, {Application} from "express"
+import express, {Application, Router} from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
+import bodyParser from "body-parser"
 
 const app: Application = express()
 
 
 dotenv.config()
 
+app.use(bodyParser.json({
+    limit: "30mb"
+}))
+
+app.use(bodyParser.urlencoded({
+    limit: "30mb",
+    extended: true
+}))
+
+//routers
+const authRouter : Router = require("./routes/auth")
 
 
 
-
+app.use("", authRouter)
 
 
 
