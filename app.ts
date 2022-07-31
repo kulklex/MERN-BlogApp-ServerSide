@@ -21,10 +21,12 @@ app.use(bodyParser.urlencoded({
 const authRouter : Router = require("./routes/auth")
 const userRouter : Router = require("./routes/user")
 const postRouter : Router = require("./routes/post")
+const categoryRouter: Router = require("./routes/category")
 
 app.use("", authRouter)
 app.use("/users", userRouter)
 app.use("/posts", postRouter)
+app.use("/categories", categoryRouter)
 
 
 
