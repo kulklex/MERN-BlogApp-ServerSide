@@ -5,7 +5,6 @@ import bodyParser from "body-parser"
 
 const app: Application = express()
 
-
 dotenv.config()
 
 app.use(bodyParser.json({
@@ -17,6 +16,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
+
+const multerRouter = require("./multer")
+app.use("", multerRouter)
+
+
+
 //routers
 const authRouter : Router = require("./routes/auth")
 const userRouter : Router = require("./routes/user")
@@ -27,10 +32,6 @@ app.use("", authRouter)
 app.use("/users", userRouter)
 app.use("/posts", postRouter)
 app.use("/categories", categoryRouter)
-
-
-
-
 
 
 const port = process.env.PORT || 3001
