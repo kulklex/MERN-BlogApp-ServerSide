@@ -19,11 +19,11 @@ app.use(bodyParser.urlencoded({
 
 //routers
 const authRouter : Router = require("./routes/auth")
-
+const userRouter : Router = require("./routes/user")
 
 
 app.use("", authRouter)
-
+app.use("/users", userRouter )
 
 
 
