@@ -47,9 +47,20 @@ export const deleteUser = async (req: Request, res: Response) => {
 //get User
 export const getUser = async(req: Request, res: Response) => {
     try {
-        const user = User.findById(req.params.id)
+        const user = await User.findById(req.params.id)
         res.status(200).json(user)
     } catch (error) {
-        res.status(500).json({message: "Fetching Users failed"})
+        res.status(500).json({message: "Fetching Users failed", error})
+    }
+}
+
+
+//get all User
+export const getUsers = async(req: Request, res: Response) => {
+    try {
+        const user = await User.find()
+        res.status(200).json(user)
+    } catch (error) {
+        res.status(500).json({message: "Fetching Users failed", error})
     }
 }
