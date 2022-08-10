@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 
 export const registerUser = async (req: Request, res: Response) => {
     try {
-        const { email, password, confirmPassword, firstName, lastName } = req.body
+        const { email, password, confirmPassword, firstName, lastName, username } = req.body
         try {
             const existingUser = await User.findOne({ email })
             if (existingUser) return res.status(400).json({ message: "User Already Exists" })
@@ -14,7 +14,7 @@ export const registerUser = async (req: Request, res: Response) => {
             if (password !== confirmPassword) return res.status(400).json({ message: "Passwords do not match" })
 
             const hashedPassword = await bcrypt.hash(password, 12)
-            const user = await User.create({ name: `${firstName} ${lastName}`, email, password: hashedPassword })
+            const user = await User.create({ name: `${firstName} ${lastName}`, email, username, password: hashedPassword })
             const token = jwt.sign({ email: user.email, id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' })
 
             res.status(200).json({ user, token, message: "User Successfully Created" })

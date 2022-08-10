@@ -6,12 +6,17 @@ const UserSchema = new mongoose.Schema({
     name : {
         type: String,
         required: true,
-        unique: true //making sure noone can create a user with an existing username
+        unique: true //making sure none can create a user with an existing username
     },
     email : {
         type: String,
         required: true,
         unique: true 
+    },
+    username : {
+        type: String,
+        required: true,
+        unique: true
     },
     password : {
         type: String,
