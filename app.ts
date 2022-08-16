@@ -2,6 +2,7 @@ import express, {Application, Router} from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import bodyParser from "body-parser"
+import cors from "cors"
 
 const app: Application = express()
 
@@ -20,7 +21,7 @@ app.use(bodyParser.urlencoded({
 const multerRouter = require("./multer")
 app.use("", multerRouter)
 
-
+app.use(cors())
 
 //routers
 const authRouter : Router = require("./routes/auth")
