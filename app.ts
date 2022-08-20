@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import bodyParser from "body-parser"
 import cors from "cors"
+import path from "path"
 
 const app: Application = express()
 
@@ -16,6 +17,11 @@ app.use(bodyParser.urlencoded({
     limit: "30mb",
     extended: true
 }))
+
+app.use("/images", express.static(path.join(__dirname ,"/images")))
+
+
+
 
 
 const multerRouter = require("./multer")
