@@ -5,8 +5,7 @@ import mongoose from "mongoose";
 const UserSchema = new mongoose.Schema({
     name : {
         type: String,
-        required: true,
-        unique: true //making sure none can create a user with an existing username
+        required: true, 
     },
     email : {
         type: String,
@@ -16,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     username : {
         type: String,
         required: true,
-        unique: true
+        unique: true //making sure no one can create a user with an existing username
     },
     password : {
         type: String,
