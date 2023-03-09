@@ -24,9 +24,9 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    categories: {
-        type: [String],
-        required: false
+    category: {
+        type: String,
+        required: true
     },
 }, {timestamps: true})
 
