@@ -1,4 +1,4 @@
-import express, {Application, Router} from "express"
+import express, {Application, Router, Request, Response} from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import bodyParser from "body-parser"
@@ -21,7 +21,9 @@ app.use(bodyParser.urlencoded({
 app.use("/images", express.static(path.join(__dirname ,"/images")))
 
 
-
+app.get("/", (req: Request, res: Response) => {
+    res.status(200).send("APP IS RUNNING")
+})
 
 
 const multerRouter = require("./multer")
