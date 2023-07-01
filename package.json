@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "dev": "ts-node --esm app.ts",
-    "start": "node app.ts",
+    "start": "ts-node -- app.ts app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hassan",
