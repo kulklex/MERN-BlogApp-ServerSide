@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { Post } from "../models/Post"
-import { User } from "../models/User"
+import User from "../models/user"
+import Post from "../models/post"
 
 const bcrypt = require('bcrypt')
 
